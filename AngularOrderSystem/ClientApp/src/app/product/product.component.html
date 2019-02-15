@@ -1,0 +1,39 @@
+
+<p-panel>
+  <p-header>
+    <h2>Product</h2>
+  </p-header>
+  <form [formGroup]="productGroup" (ngSubmit)="onSubmit()">
+    <div class="col-sm-12" style="text-align:center">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label class="col-sm-3">
+            Name:
+          </label>
+          <input type="text" formControlName="Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label class="col-sm-3">
+            Description:
+          </label>
+          <input type="text" formControlName="Descriptions">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label class="col-sm-3">
+            Price:
+          </label>
+          <input type="text" formControlName="Price">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-panel>

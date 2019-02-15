@@ -1,0 +1,27 @@
+<h1>Order Search</h1>
+
+<p *ngIf="!orders"><em>Loading...</em></p>
+
+<table class='table' *ngIf="orders">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Descriptions</th>
+      <th>Order Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of orders let i = index" [attr.data-index]="i">
+      <td>{{ o.id }}</td>
+      <td>{{ o.description }}</td>
+      <td>{{ o.orderDate }}</td>
+      <td><button type="button" (click)="onEdit(i, o)">View/Edit</button></td>
+      <td><button type="button" (click)="onDelete(i, o)">Delete</button></td>
+    </tr>
+    <tr>
+      <td colspan="6" style="text-align:center">
+        <button type="button" (click)="onNewOrder()">New Order</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

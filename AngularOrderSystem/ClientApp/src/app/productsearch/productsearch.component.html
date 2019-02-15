@@ -1,0 +1,31 @@
+<h1>Product Search</h1>
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table' *ngIf="products">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Descriptions</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products let i = index" [attr.data-index]="i">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.descriptions }}</td>
+      <td>{{ p.price }}</td>
+      <td><button type="button" (click)="onEdit(i, p)">Edit</button></td>
+      <td><button type="button" (click)="onDelete(i, p)">Delete</button></td>
+    </tr>
+    <tr>
+      <td colspan="6" style="text-align:center">
+        <button type="button" (click)="onNewProduct()">New Product</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

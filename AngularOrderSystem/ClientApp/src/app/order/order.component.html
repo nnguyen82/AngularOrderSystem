@@ -1,0 +1,63 @@
+<p-panel>
+  <p-header>
+    <h2>Order</h2>
+  </p-header>
+  <div class="col-sm-12" style="text-align:center">
+    <div class="row">
+      <div class="form-group col-sm-5">
+        <label class="col-sm-4">
+          Order Description:
+        </label>
+        <input type="text" [(ngModel)]="OrderDescription">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-5">
+        <label class="col-sm-4">
+          Order Date:
+        </label>
+        <p-calendar [(ngModel)]="OrderDate" dateFormat="mm.dd.yy"></p-calendar>
+      </div>
+    </div>
+  </div>
+</p-panel>
+
+<p-panel>
+  <p-header>
+    <h2>Product</h2>
+  </p-header>
+  <div class="col-sm-12" style="text-align:center">
+    <div class="row">
+      <div>
+        <input type="text" name="ProductSearch" [(ngModel)]="ProductSearchText">
+        <button type="button" (click)="onSearch()" [disabled]="disableAdd">Add Product</button>
+      </div>
+      <br />
+      <br />
+      <table class='table' *ngIf="products">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Descriptions</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products let i = index" [attr.data-index]="i">
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.descriptions }}</td>
+            <td>{{ p.price }}</td>
+            <td><button type="button" (click)="onProductDelete(i)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</p-panel>
+
+<div class="col-sm-12" style="text-align:center">
+  <button type="button" (click)="onSubmit()">Submit</button>
+</div>
